@@ -54,7 +54,7 @@ module.exports = app => {
             .select('id', 'name', 'description')
             .limit(limit).offset(page * limit - limit)
             .then(articles => res.json({ data: articles, count, limit }))
-            .catch(err => res.status(500).send())
+            .catch(err => res.status(500).send(err))
     }
 
     const getById = (req, res) => {
